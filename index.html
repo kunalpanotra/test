@@ -1005,4 +1005,1011 @@
   </footer>
 
 </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUXE — Premium E-Commerce</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --ink: #0d0d0d;
+      --cream: #f5f0e8;
+      --gold: #b8954a;
+      --gold-light: #d4af6e;
+      --muted: #7a7370;
+      --border: rgba(13,13,13,0.1);
+      --white: #ffffff;
+      --card-bg: #faf7f2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── Announcement Bar ── */
+    .announcement {
+      background: var(--ink);
+      color: var(--cream);
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+    }
+
+    /* ── Header ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .logo span { color: var(--gold); }
+
+    nav { display: flex; gap: 36px; align-items: center; }
+    nav a {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      position: relative;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    nav a:hover { color: var(--gold); }
+    nav a:hover::after { width: 100%; }
+
+    .header-icons { display: flex; gap: 20px; align-items: center; }
+    .icon-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.1rem; color: var(--ink);
+      position: relative; transition: color 0.2s;
+      padding: 4px;
+    }
+    .icon-btn:hover { color: var(--gold); }
+    .cart-count {
+      position: absolute; top: -4px; right: -6px;
+      background: var(--gold); color: white;
+      font-size: 0.6rem; width: 16px; height: 16px;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+      animation: fadeSlideLeft 1s ease both;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 400px;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+
+    .btn-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--cream);
+      border: none;
+      padding: 16px 36px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.3s, color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+      padding: 15px 36px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-visual {
+      position: relative;
+      background: var(--ink);
+      overflow: hidden;
+      animation: fadeSlideRight 1s ease both;
+    }
+    .hero-visual-inner {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .hero-img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(160deg, #1a1610 0%, #2d2518 40%, #b8954a22 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+    }
+    .hero-img-placeholder svg { opacity: 0.15; }
+    .hero-badge {
+      position: absolute;
+      bottom: 48px; left: -20px;
+      background: var(--gold);
+      color: white;
+      padding: 16px 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      box-shadow: 0 8px 32px rgba(184,149,74,0.3);
+    }
+
+    /* ── Stats Bar ── */
+    .stats-bar {
+      background: var(--ink);
+      color: var(--cream);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 40px;
+      gap: 1px;
+    }
+    .stat {
+      padding: 20px;
+      border-right: 1px solid rgba(245,240,232,0.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+    }
+
+    /* ── Section Headers ── */
+    .section { padding: 100px 80px; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .divider {
+      width: 48px; height: 1px;
+      background: var(--gold);
+      margin: 24px auto 0;
+    }
+
+    /* ── Categories ── */
+    .categories { background: var(--white); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 300px 300px;
+      gap: 16px;
+    }
+    .cat-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: #1a1610;
+    }
+    .cat-card:first-child { grid-row: span 2; }
+    .cat-bg {
+      position: absolute; inset: 0;
+      transition: transform 0.6s ease;
+    }
+    .cat-card:hover .cat-bg { transform: scale(1.05); }
+    .cat-bg-1 { background: linear-gradient(135deg, #2d2518 0%, #4a3920 100%); }
+    .cat-bg-2 { background: linear-gradient(135deg, #1a2030 0%, #2a3545 100%); }
+    .cat-bg-3 { background: linear-gradient(135deg, #201a20 0%, #352030 100%); }
+    .cat-bg-4 { background: linear-gradient(135deg, #1a2018 0%, #2a3528 100%); }
+    .cat-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+    }
+    .cat-label {
+      position: absolute; bottom: 24px; left: 24px;
+      color: white;
+    }
+    .cat-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .cat-count { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .cat-icon {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -70%);
+      font-size: 4rem;
+      opacity: 0.1;
+    }
+
+    /* ── Products ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      position: relative;
+      cursor: pointer;
+      transition: box-shadow 0.3s, transform 0.3s;
+      animation: fadeUp 0.6s ease both;
+    }
+    .product-card:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      transform: translateY(-4px);
+    }
+
+    .product-badge {
+      position: absolute; top: 16px; left: 16px; z-index: 2;
+      background: var(--gold);
+      color: white;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+    .product-badge.new { background: var(--ink); }
+    .product-badge.sale { background: #c0392b; }
+
+    .product-img {
+      height: 260px;
+      background: linear-gradient(135deg, #e8e0d0, #d5c8b0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(13,13,13,0);
+      transition: background 0.3s;
+    }
+    .product-card:hover .product-img::after { background: rgba(13,13,13,0.06); }
+
+    .product-actions {
+      position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 2;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .product-card:hover .product-actions { opacity: 1; }
+    .action-btn {
+      background: white; border: none; cursor: pointer;
+      width: 38px; height: 38px; border-radius: 50%;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      transition: background 0.2s, color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .action-btn:hover { background: var(--gold); color: white; }
+
+    .product-info { padding: 20px 20px 24px; }
+    .product-cat {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .product-rating { color: var(--gold); font-size: 0.7rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .product-price-row { display: flex; align-items: center; gap: 10px; }
+    .product-price { font-size: 1.05rem; font-weight: 500; color: var(--ink); }
+    .product-price-old { font-size: 0.85rem; color: var(--muted); text-decoration: line-through; }
+    .add-to-cart {
+      margin-top: 16px;
+      width: 100%; padding: 12px;
+      background: var(--ink); color: var(--cream);
+      border: none; cursor: pointer;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.3s;
+    }
+    .add-to-cart:hover { background: var(--gold); }
+
+    /* ── Feature Banner ── */
+    .feature-banner {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 100px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .feature-content { }
+    .feature-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .feature-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300; line-height: 1.15; margin-bottom: 28px;
+    }
+    .feature-desc { color: rgba(245,240,232,0.6); line-height: 1.8; margin-bottom: 40px; font-size: 0.95rem; font-weight: 300; }
+    .feature-points { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .feature-points li { display: flex; align-items: center; gap: 12px; font-size: 0.88rem; color: rgba(245,240,232,0.8); }
+    .feature-points li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; }
+    .feature-visual {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      height: 400px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem; opacity: 0.2;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials { background: var(--white); }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      position: relative;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      line-height: 0.8;
+      margin-bottom: 20px;
+      opacity: 0.4;
+    }
+    .testimonial-text {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .author-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #e8c87a);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .author-name { font-size: 0.85rem; font-weight: 500; margin-bottom: 2px; }
+    .author-meta { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
+    .rating-stars { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 16px; }
+
+    /* ── Newsletter ── */
+    .newsletter {
+      background: var(--cream);
+      padding: 100px 80px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .newsletter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .newsletter-desc { color: var(--muted); margin-bottom: 40px; font-size: 0.92rem; line-height: 1.7; font-weight: 300; }
+    .newsletter-form {
+      display: flex; gap: 0; max-width: 480px; margin: 0 auto;
+      border: 1px solid var(--ink);
+    }
+    .newsletter-input {
+      flex: 1; padding: 16px 20px;
+      border: none; background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem; color: var(--ink);
+      outline: none;
+    }
+    .newsletter-input::placeholder { color: var(--muted); }
+    .newsletter-btn {
+      background: var(--ink); color: var(--cream);
+      border: none; padding: 16px 24px;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      transition: background 0.3s;
+    }
+    .newsletter-btn:hover { background: var(--gold); }
+
+    /* ── Trust Badges ── */
+    .trust-row {
+      background: var(--ink);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      text-align: center; padding: 48px 80px;
+    }
+    .trust-item {
+      padding: 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .trust-title { font-size: 0.8rem; font-weight: 500; color: var(--cream); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .trust-sub { font-size: 0.72rem; color: rgba(245,240,232,0.4); }
+
+    /* ── Footer ── */
+    footer {
+      background: #080808;
+      color: rgba(245,240,232,0.5);
+      padding: 80px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px; margin-bottom: 60px;
+    }
+    .footer-brand .logo { color: var(--cream); margin-bottom: 16px; display: block; }
+    .footer-desc { font-size: 0.85rem; line-height: 1.8; font-weight: 300; max-width: 260px; }
+    .footer-socials { display: flex; gap: 12px; margin-top: 24px; }
+    .social-btn {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(245,240,232,0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; cursor: pointer; color: rgba(245,240,232,0.4);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-col-title {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--cream); margin-bottom: 24px; font-weight: 500;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.85rem; color: rgba(245,240,232,0.4);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-legal { font-size: 0.75rem; }
+    .payment-icons { display: flex; gap: 8px; }
+    .payment-icon {
+      background: rgba(255,255,255,0.06); border-radius: 4px;
+      padding: 4px 10px; font-size: 0.7rem; color: rgba(245,240,232,0.3);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeSlideLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeSlideRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .product-card:nth-child(1) { animation-delay: 0.1s; }
+    .product-card:nth-child(2) { animation-delay: 0.2s; }
+    .product-card:nth-child(3) { animation-delay: 0.3s; }
+    .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1100px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-visual { height: 400px; }
+      .hero-text { padding: 60px 40px; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .cat-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .cat-card:first-child { grid-row: span 1; }
+      .feature-banner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .section { padding: 60px 24px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .trust-row { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
+      footer { padding: 60px 24px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-bottom { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement">Free worldwide shipping on orders over $150 &nbsp;·&nbsp; New arrivals every Friday</div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">LUX<span>E</span></a>
+    <nav>
+      <a href="#">Collections</a>
+      <a href="#">New In</a>
+      <a href="#">Sale</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="header-icons">
+      <button class="icon-btn" title="Search">🔍</button>
+      <button class="icon-btn" title="Wishlist">♡</button>
+      <button class="icon-btn" title="Account">◎</button>
+      <button class="icon-btn" title="Cart" style="position:relative">
+        🛒
+        <span class="cart-count">3</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">✦ New Collection 2026</p>
+      <h1 class="hero-title">
+        Crafted for<br/>those who<br/><em>dare to differ</em>
+      </h1>
+      <p class="hero-desc">
+        Curated luxury for the discerning few. Each piece is selected with intention — where heritage craft meets contemporary vision.
+      </p>
+      <div class="btn-row">
+        <a href="#products" class="btn-primary">Shop Now</a>
+        <a href="#" class="btn-ghost">Explore Lookbook</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-placeholder">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="15" width="80" height="90" rx="2" stroke="#b8954a" stroke-width="1.5"/>
+          <circle cx="60" cy="50" r="18" stroke="#b8954a" stroke-width="1.5"/>
+          <line x1="40" y1="80" x2="80" y2="80" stroke="#b8954a" stroke-width="1.5"/>
+          <line x1="40" y1="90" x2="70" y2="90" stroke="#b8954a" stroke-width="1.5"/>
+        </svg>
+        <p style="color:rgba(184,149,74,0.3);font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;font-family:'DM Sans',sans-serif">Product Image</p>
+      </div>
+      <div class="hero-badge">Exclusively curated — Spring '26</div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num">12K+</span>
+      <span class="stat-label">Happy Customers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">340+</span>
+      <span class="stat-label">Curated Products</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">98%</span>
+      <span class="stat-label">Satisfaction Rate</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">48hr</span>
+      <span class="stat-label">Express Delivery</span>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <section class="section categories">
+    <div class="section-header">
+      <p class="section-eyebrow">✦ Browse by Category</p>
+      <h2 class="section-title">Explore our <em>collections</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-1"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-icon">👗</div>
+        <div class="cat-label">
+          <span class="cat-name">Women's Fashion</span>
+          <span class="cat-count">148 Items</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-2"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-icon">👔</div>
+        <div class="cat-label">
+          <span class="cat-name">Men's Style</span>
+          <span class="cat-count">96 Items</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-3"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-icon">💎</div>
+        <div class="cat-label">
+          <span class="cat-name">Accessories</span>
+          <span class="cat-count">64 Items</span>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-bg cat-bg-4"></div>
+        <div class="cat-overlay"></div>
+        <div class="cat-icon">🏠</div>
+        <div class="cat-label">
+          <span class="cat-name">Home & Living</span>
+          <span class="cat-count">72 Items</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="section" id="products">
+    <div class="section-header">
+      <p class="section-eyebrow">✦ Handpicked for You</p>
+      <h2 class="section-title">Featured <em>arrivals</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="products-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-badge new">New</div>
+        <div class="product-img">
+          🧣
+          <div class="product-actions">
+            <button class="action-btn" title="Quick View">👁</button>
+            <button class="action-btn" title="Wishlist">♡</button>
+            <button class="action-btn" title="Compare">⇄</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Women · Accessories</p>
+          <p class="product-name">Cashmere Wrap Scarf</p>
+          <div class="product-rating">★★★★★</div>
+          <div class="product-price-row">
+            <span class="product-price">$189</span>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-badge sale">−30%</div>
+        <div class="product-img" style="background: linear-gradient(135deg,#d5dce8,#c0c8d8);">
+          🥿
+          <div class="product-actions">
+            <button class="action-btn" title="Quick View">👁</button>
+            <button class="action-btn" title="Wishlist">♡</button>
+            <button class="action-btn" title="Compare">⇄</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Women · Footwear</p>
+          <p class="product-name">Italian Suede Loafer</p>
+          <div class="product-rating">★★★★☆</div>
+          <div class="product-price-row">
+            <span class="product-price">$245</span>
+            <span class="product-price-old">$350</span>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-img" style="background: linear-gradient(135deg,#d8cec0,#c8b8a0);">
+          👜
+          <div class="product-actions">
+            <button class="action-btn" title="Quick View">👁</button>
+            <button class="action-btn" title="Wishlist">♡</button>
+            <button class="action-btn" title="Compare">⇄</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Accessories · Bags</p>
+          <p class="product-name">Structured Leather Tote</p>
+          <div class="product-rating">★★★★★</div>
+          <div class="product-price-row">
+            <span class="product-price">$420</span>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <div class="product-badge" style="background:#4a6741">Bestseller</div>
+        <div class="product-img" style="background: linear-gradient(135deg,#c8d8c0,#b0c8a8);">
+          🧥
+          <div class="product-actions">
+            <button class="action-btn" title="Quick View">👁</button>
+            <button class="action-btn" title="Wishlist">♡</button>
+            <button class="action-btn" title="Compare">⇄</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Men · Outerwear</p>
+          <p class="product-name">Merino Wool Overcoat</p>
+          <div class="product-rating">★★★★★</div>
+          <div class="product-price-row">
+            <span class="product-price">$680</span>
+          </div>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:56px;">
+      <a href="#" class="btn-ghost">View All Products</a>
+    </div>
+  </section>
+
+  <!-- Feature Banner -->
+  <div class="feature-banner">
+    <div class="feature-content">
+      <p class="feature-eyebrow">✦ Our Promise</p>
+      <h2 class="feature-title" style="color:var(--cream)">Luxury is not just a label — it's a <em style="color:var(--gold)">commitment</em></h2>
+      <p class="feature-desc">Every product in our collection is personally vetted by our team of curators. We partner only with artisans and ateliers who share our obsession with quality and ethical craftsmanship.</p>
+      <ul class="feature-points">
+        <li>Ethically sourced materials from certified suppliers</li>
+        <li>Hand-inspected before every shipment</li>
+        <li>60-day hassle-free returns</li>
+        <li>Lifetime authenticity guarantee</li>
+      </ul>
+      <a href="#" class="btn-primary">Our Story</a>
+    </div>
+    <div class="feature-visual">✦</div>
+  </div>
+
+  <!-- Testimonials -->
+  <section class="section testimonials">
+    <div class="section-header">
+      <p class="section-eyebrow">✦ What They Say</p>
+      <h2 class="section-title">Voices of our <em>community</em></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="rating-stars">★★★★★</div>
+        <p class="testimonial-text">The quality surpassed anything I've seen at this price point. The packaging alone made it feel like a gift to myself. I'm a customer for life.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <div>
+            <p class="author-name">Sofia Marchetti</p>
+            <p class="author-meta">Milan, Italy · Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="rating-stars">★★★★★</div>
+        <p class="testimonial-text">I was skeptical shopping online for luxury goods. LUXE completely changed my expectations. Arrived in two days, perfectly presented, genuinely exquisite.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#4a6791,#6a87b1)">J</div>
+          <div>
+            <p class="author-name">James Whitfield</p>
+            <p class="author-meta">London, UK · Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <div class="rating-stars">★★★★★</div>
+        <p class="testimonial-text">The curation is unmatched. Every season feels like discovering something entirely new. My wardrobe has never felt more intentional or cohesive.</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#714a6a,#9a6a91)">A</div>
+          <div>
+            <p class="author-name">Ayasha Nair</p>
+            <p class="author-meta">Mumbai, India · Verified Buyer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <p class="section-eyebrow" style="text-align:center">✦ Stay in the loop</p>
+    <h2 class="newsletter-title">Early access. <em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold)">Exclusive</em> offers.</h2>
+    <p class="newsletter-desc">Join our inner circle and be the first to discover new arrivals, private sales, and stories from the world of luxury craft.</p>
+    <div class="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="Your email address"/>
+      <button class="newsletter-btn">Subscribe →</button>
+    </div>
+    <p style="margin-top:16px;font-size:0.72rem;color:var(--muted);letter-spacing:0.05em">No spam. Unsubscribe anytime. We respect your privacy.</p>
+  </section>
+
+  <!-- Trust Badges -->
+  <div class="trust-row">
+    <div class="trust-item">
+      <div class="trust-icon">🚚</div>
+      <p class="trust-title">Free Shipping</p>
+      <p class="trust-sub">On orders over $150</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <p class="trust-title">Secure Payment</p>
+      <p class="trust-sub">256-bit SSL encryption</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">↩️</div>
+      <p class="trust-title">Easy Returns</p>
+      <p class="trust-sub">60-day return policy</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🏅</div>
+      <p class="trust-title">Authenticity</p>
+      <p class="trust-sub">100% genuine products</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">LUX<span style="color:var(--gold)">E</span></a>
+        <p class="footer-desc">Curated luxury for those who refuse to compromise. Since 2019, we've been redefining what premium online retail means.</p>
+        <div class="footer-socials">
+          <div class="social-btn">𝕏</div>
+          <div class="social-btn">in</div>
+          <div class="social-btn">IG</div>
+          <div class="social-btn">fb</div>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Shop</p>
+        <ul class="footer-links">
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Women's Fashion</a></li>
+          <li><a href="#">Men's Style</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Help</p>
+        <ul class="footer-links">
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Company</p>
+        <ul class="footer-links">
+          <li><a href="#">About LUXE</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-legal">© 2026 LUXE. All rights reserved. Crafted with intention.</p>
+      <div class="payment-icons">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">MC</span>
+        <span class="payment-icon">AMEX</span>
+        <span class="payment-icon">PayPal</span>
+        <span class="payment-icon">GPay</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
